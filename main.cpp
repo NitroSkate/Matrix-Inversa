@@ -5,6 +5,8 @@
 
 using namespace std;
 
+//Se utilizaron las funciones proporcionadas por el instructor
+
 typedef vector<float> Vector;
 typedef vector<Vector> Matrix;
 
