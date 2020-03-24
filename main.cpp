@@ -107,6 +107,9 @@ int main() {
         Determinant_MO = determinant(matriz_original);
         //cout << "Determinant: " <<  Determinant_MO;
         MatrixAdjunta(matriz_inversa, Determinant_MO);
+
+
+        //Mostrando matriz inversa
         showMatrix(matriz_inversa);
     }
 
