@@ -86,34 +86,41 @@ void MatrixAdjunta(Matrix &K, float det){
     }
 }
 
+
+void SacarInversa(Matrix original, Matrix &inversa){
+    float Determinant_MO;
+    Matrix transpuesta;
+
+    transpose(original,transpuesta);
+    //showMatrix(matriz_transpuesta);
+    cofactors(transpuesta,inversa);
+    //showMatrix(matriz_inversa);
+    if(determinant(original)==0){
+        EXIT_FAILURE;
+    } else {
+        Determinant_MO = determinant(original);
+        //cout << "Determinant: " <<  Determinant_MO;
+        MatrixAdjunta(inversa, Determinant_MO);
+
+
+        //Mostrando matriz inversa
+        showMatrix(inversa);
+    }
+}
+
 int main() {
     //std::cout << "Hello, World!" << std::endl;
 
     Matrix matriz_original, matriz_transpuesta, matriz_inversa;
-    float Determinant_MO;
+    //float Determinant_MO;
 
     zeroes(matriz_original, 3);
 
     matriz_original.at(0).at(0) = 2; matriz_original.at(0).at(1) = 2; matriz_original.at(0).at(2) = 3;
     matriz_original.at(1).at(0) = 4; matriz_original.at(1).at(1) = 5; matriz_original.at(1).at(2) = 6;
     matriz_original.at(2).at(0) = 7; matriz_original.at(2).at(1) = 8; matriz_original.at(2).at(2) = 9;
-    //showMatrix(matriz_original);
 
-    transpose(matriz_original,matriz_transpuesta);
-    //showMatrix(matriz_transpuesta);
-    cofactors(matriz_transpuesta,matriz_inversa);
-    //showMatrix(matriz_inversa);
-    if(determinant(matriz_original)==0){
-        EXIT_FAILURE;
-    } else {
-        Determinant_MO = determinant(matriz_original);
-        //cout << "Determinant: " <<  Determinant_MO;
-        MatrixAdjunta(matriz_inversa, Determinant_MO);
-
-
-        //Mostrando matriz inversa
-        showMatrix(matriz_inversa);
-    }
+    SacarInversa(matriz_original,matriz_inversa);
 
 
 
